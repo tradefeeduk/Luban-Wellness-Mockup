@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luban Wellness — Omani Frankincense & Hojari Resin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --c-cream:       #F8F4EF;
+      --c-parchment:   #F0E9DF;
+      --c-linen:       #E8DDD0;
+      --c-stone:       #C8B8A8;
+      --c-taupe:       #9A8878;
+      --c-sage:        #7A9E7E;
+      --c-sage-deep:   #4E7A52;
+      --c-sage-pale:   #C4D9C6;
+      --c-ink:         #1E1C19;
+      --c-ink-soft:    #3D3A35;
+      --c-mid:         #6B6560;
+      --c-gold:        #C4996A;
+      --c-gold-pale:   #EAD9C0;
+      --c-white:       #FFFFFF;
+      --c-border:      rgba(180,165,148,0.35);
+
+      --f-serif: 'Cormorant Garamond', Georgia, serif;
+      --f-sans:  'DM Sans', system-ui, sans-serif;
+
+      --r-sm: 0.5rem;
+      --r-md: 0.875rem;
+      --r-lg: 1.5rem;
+      --r-xl: 2rem;
+      --r-pill: 100px;
+
+      --shadow-card: 0 2px 16px rgba(30,28,25,0.06), 0 1px 4px rgba(30,28,25,0.04);
+      --shadow-hover: 0 12px 40px rgba(30,28,25,0.1), 0 4px 12px rgba(30,28,25,0.06);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--f-sans);
+      background: var(--c-cream);
+      color: var(--c-ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; font-family: inherit; }
+
+    /* ── ANNOUNCEMENT ── */
+    .announcement {
+      background: var(--c-ink);
+      color: var(--c-gold-pale);
+      text-align: center;
+      padding: 0.55rem 1rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(248,244,239,0.97);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--c-border);
+    }
+    .nav-wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+    .nav-logo {
+      font-family: var(--f-serif);
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: var(--c-ink);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .nav-logo em {
+      font-style: italic;
+      color: var(--c-sage-deep);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+      flex: 1;
+      justify-content: center;
+    }
+    .nav-links a {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--c-mid);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--c-ink); }
+    .nav-actions { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+    .nav-bag {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--c-ink);
+      color: var(--c-white);
+      padding: 0.5rem 1.25rem;
+      border-radius: var(--r-pill);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .nav-bag:hover { background: var(--c-sage-deep); }
+    .bag-count {
+      background: var(--c-sage-deep);
+      color: white;
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 50%;
+      font-size: 0.65rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 96px);
+    }
+    .hero-left {
+      background: var(--c-parchment);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 5rem 5rem 6rem;
+    }
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--c-sage-deep);
+      margin-bottom: 1.5rem;
+    }
+    .label::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--c-sage-deep);
+      flex-shrink: 0;
+    }
+    .hero h1 {
+      font-family: var(--f-serif);
+      font-size: clamp(3rem, 4.5vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: var(--c-ink);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--c-sage-deep);
+      font-weight: 300;
+    }
+    .hero-body {
+      font-size: 1rem;
+      color: var(--c-mid);
+      max-width: 380px;
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+    }
+    .hero-ctas { display: flex; gap: 0.875rem; align-items: center; flex-wrap: wrap; }
+    .btn-fill {
+      background: var(--c-ink);
+      color: var(--c-white);
+      padding: 0.875rem 2rem;
+      border-radius: var(--r-pill);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: none;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-fill:hover { background: var(--c-sage-deep); transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--c-ink);
+      padding: 0.875rem 2rem;
+      border-radius: var(--r-pill);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1.5px solid rgba(30,28,25,0.3);
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-ghost:hover { border-color: var(--c-ink); background: var(--c-ink); color: white; }
+    .hero-stats {
+      margin-top: 3.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--c-border);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .stat-n {
+      font-family: var(--f-serif);
+      font-size: 2.25rem;
+      font-weight: 400;
+      color: var(--c-ink);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-l {
+      font-size: 0.67rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--c-taupe);
+    }
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-right-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(240,233,223,0.15) 0%, transparent 40%);
+    }
+    .hero-pill {
+      position: absolute;
+      bottom: 2.5rem;
+      right: 2rem;
+      background: rgba(248,244,239,0.94);
+      backdrop-filter: blur(12px);
+      padding: 1rem 1.4rem;
+      border-radius: var(--r-md);
+      border: 1px solid var(--c-border);
+    }
+    .hero-pill-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-sage-deep); margin-bottom: 0.15rem; }
+    .hero-pill-text { font-family: var(--f-serif); font-size: 1.05rem; color: var(--c-ink); font-weight: 400; }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip {
+      background: var(--c-ink);
+      padding: 0;
+      overflow: hidden;
+    }
+    .trust-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1.1rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      padding: 0.3rem 1.75rem;
+    }
+    .trust-item + .trust-item {
+      border-left: 1px solid rgba(255,255,255,0.12);
+    }
+    .trust-item svg { width: 14px; height: 14px; color: var(--c-sage); flex-shrink: 0; }
+
+    /* ── SHARED SECTION STYLES ── */
+    .sec { padding: 5.5rem 2.5rem; }
+    .sec-inner { max-width: 1280px; margin: 0 auto; }
+    .sec-header { text-align: center; margin-bottom: 3.5rem; }
+    .sec-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--c-sage-deep);
+      margin-bottom: 0.875rem;
+      display: block;
+    }
+    .sec-title {
+      font-family: var(--f-serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      color: var(--c-ink);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.875rem;
+    }
+    .sec-sub {
+      font-size: 0.9rem;
+      color: var(--c-mid);
+      max-width: 480px;
+      margin: 0 auto;
+      font-weight: 300;
+      line-height: 1.85;
+    }
+
+    /* ── PRODUCTS ── */
+    .products-sec { background: var(--c-cream); }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .p-card {
+      background: var(--c-white);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      border: 1px solid var(--c-border);
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .p-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-5px);
+    }
+    .p-img {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      background: var(--c-parchment);
+    }
+    .p-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .p-card:hover .p-img img { transform: scale(1.06); }
+    .p-badge {
+      position: absolute;
+      top: 0.875rem;
+      left: 0.875rem;
+      padding: 0.28rem 0.8rem;
+      border-radius: var(--r-pill);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .badge-ink { background: var(--c-ink); color: white; }
+    .badge-sage { background: var(--c-sage-deep); color: white; }
+    .badge-gold { background: var(--c-gold); color: white; }
+    .p-body { padding: 1.25rem 1.25rem 1.4rem; }
+    .p-stars { display: flex; align-items: center; gap: 0.1rem; margin-bottom: 0.6rem; }
+    .p-stars svg { width: 12px; height: 12px; fill: var(--c-gold); }
+    .p-stars span { font-size: 0.72rem; color: var(--c-taupe); margin-left: 0.3rem; }
+    .p-name {
+      font-family: var(--f-serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--c-ink);
+      margin-bottom: 0.35rem;
+      line-height: 1.3;
+    }
+    .p-desc { font-size: 0.78rem; color: var(--c-mid); line-height: 1.6; margin-bottom: 1.1rem; font-weight: 300; }
+    .p-foot { display: flex; align-items: center; justify-content: space-between; }
+    .p-price { font-family: var(--f-serif); font-size: 1.15rem; font-weight: 500; color: var(--c-ink); }
+    .p-add {
+      background: var(--c-ink);
+      color: white;
+      border: none;
+      padding: 0.5rem 1.1rem;
+      border-radius: var(--r-pill);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .p-add:hover { background: var(--c-sage-deep); }
+
+    /* ── BENEFITS ── */
+    .benefits-sec { background: var(--c-ink); }
+    .benefits-sec .sec-label { color: var(--c-sage-pale); }
+    .benefits-sec .sec-title { color: white; }
+    .benefits-sec .sec-sub { color: rgba(255,255,255,0.5); }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    .b-card {
+      padding: 2.5rem 2rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--r-lg);
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .b-card:hover {
+      background: rgba(255,255,255,0.07);
+      transform: translateY(-3px);
+      border-color: rgba(122,158,126,0.3);
+    }
+    .b-icon {
+      width: 3.25rem;
+      height: 3.25rem;
+      background: rgba(78,122,82,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      border: 1px solid rgba(122,158,126,0.25);
+    }
+    .b-icon svg { width: 20px; height: 20px; color: var(--c-sage); }
+    .b-title {
+      font-family: var(--f-serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: white;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.01em;
+    }
+    .b-text { font-size: 0.84rem; color: rgba(255,255,255,0.5); line-height: 1.8; font-weight: 300; }
+
+    /* ── HOW TO ── */
+    .howto-sec { background: var(--c-parchment); }
+    .howto-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .howto-img-wrap {
+      position: relative;
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+    .howto-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .howto-float {
+      position: absolute;
+      bottom: 1.75rem;
+      left: 1.75rem;
+      right: 1.75rem;
+      background: rgba(248,244,239,0.95);
+      backdrop-filter: blur(12px);
+      padding: 1.1rem 1.4rem;
+      border-radius: var(--r-md);
+      border: 1px solid var(--c-border);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .howto-float-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: var(--c-sage-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .howto-float-icon svg { width: 16px; height: 16px; color: var(--c-sage-deep); }
+    .howto-float-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-sage-deep); margin-bottom: 0.1rem; }
+    .howto-float-text { font-family: var(--f-serif); font-size: 1rem; color: var(--c-ink); }
+    .howto-content {}
+    .howto-content .sec-title { text-align: left; }
+    .howto-lead { font-size: 0.9rem; color: var(--c-mid); line-height: 1.85; margin-bottom: 0; font-weight: 300; }
+    .steps { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2.5rem; }
+    .step { display: flex; gap: 1.25rem; align-items: flex-start; }
+    .step-n {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 50%;
+      background: var(--c-sage-deep);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-serif);
+      font-size: 1rem;
+      font-weight: 400;
+      flex-shrink: 0;
+    }
+    .step-title { font-size: 0.875rem; font-weight: 600; color: var(--c-ink); margin-bottom: 0.25rem; }
+    .step-text { font-size: 0.82rem; color: var(--c-mid); line-height: 1.75; font-weight: 300; }
+
+    /* ── REVIEWS ── */
+    .reviews-sec { background: var(--c-linen); }
+    .reviews-score-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--c-border);
+    }
+    .r-big-score {
+      font-family: var(--f-serif);
+      font-size: 5rem;
+      font-weight: 300;
+      color: var(--c-ink);
+      line-height: 1;
+    }
+    .r-score-detail { display: flex; flex-direction: column; gap: 0.4rem; }
+    .r-stars { display: flex; gap: 0.2rem; }
+    .r-stars svg { width: 18px; height: 18px; fill: var(--c-gold); }
+    .r-count { font-size: 0.8rem; color: var(--c-mid); font-weight: 300; }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .r-card {
+      background: var(--c-white);
+      padding: 2rem 2rem 1.75rem;
+      border-radius: var(--r-lg);
+      border: 1px solid var(--c-border);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .r-card-stars { display: flex; gap: 0.15rem; }
+    .r-card-stars svg { width: 13px; height: 13px; fill: var(--c-gold); }
+    .r-text {
+      font-family: var(--f-serif);
+      font-size: 1.05rem;
+      color: var(--c-ink-soft);
+      line-height: 1.7;
+      font-style: italic;
+      font-weight: 300;
+      flex: 1;
+    }
+    .r-author { display: flex; align-items: center; gap: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--c-border); }
+    .r-avatar {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 50%;
+      background: var(--c-linen);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-serif);
+      font-size: 1rem;
+      color: var(--c-sage-deep);
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+    .r-name { font-size: 0.84rem; font-weight: 600; color: var(--c-ink); }
+    .r-verified { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-sage-deep); }
+
+    /* ── BUNDLE ── */
+    .bundle-sec { background: var(--c-cream); }
+    .bundle-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .bundle-imgs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 0.875rem;
+    }
+    .b-img {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      background: var(--c-parchment);
+    }
+    .b-img.main { grid-column: span 2; aspect-ratio: 16/9; }
+    .b-img.half { aspect-ratio: 1; }
+    .b-img img { width: 100%; height: 100%; object-fit: cover; }
+    .bundle-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--c-gold-pale);
+      color: var(--c-taupe);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: var(--r-pill);
+      margin-bottom: 1.5rem;
+    }
+    .bundle-title {
+      font-family: var(--f-serif);
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: var(--c-ink);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    .bundle-desc { font-size: 0.9rem; color: var(--c-mid); line-height: 1.85; margin-bottom: 1.75rem; font-weight: 300; }
+    .bundle-list { list-style: none; margin-bottom: 2rem; }
+    .bundle-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.875rem;
+      color: var(--c-ink-soft);
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--c-border);
+      font-weight: 400;
+    }
+    .bundle-list li svg { width: 14px; height: 14px; color: var(--c-sage-deep); flex-shrink: 0; }
+    .bundle-price-row { display: flex; align-items: baseline; gap: 0.875rem; margin-bottom: 1.75rem; }
+    .bundle-now { font-family: var(--f-serif); font-size: 2.5rem; font-weight: 400; color: var(--c-ink); }
+    .bundle-was { font-size: 1rem; color: var(--c-stone); text-decoration: line-through; }
+    .bundle-save {
+      background: var(--c-sage-deep);
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--r-pill);
+    }
+
+    /* ── SOCIAL ── */
+    .social-sec { background: var(--c-parchment); padding: 5rem 2.5rem; }
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.625rem;
+      margin-top: 3rem;
+    }
+    .s-item {
+      aspect-ratio: 1;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      background: var(--c-linen);
+      position: relative;
+      cursor: pointer;
+    }
+    .s-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .s-item:hover img { transform: scale(1.07); }
+    .s-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(30,28,25,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .s-overlay svg { width: 24px; height: 24px; color: white; }
+    .s-item:hover .s-overlay { opacity: 1; }
+
+    /* ── CTA ── */
+    .cta-sec {
+      background: var(--c-ink);
+      padding: 8rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-sec::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 50% 0%, rgba(78,122,82,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 20% 100%, rgba(196,153,106,0.07) 0%, transparent 60%);
+    }
+    .cta-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+    .cta-label { display: block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-sage); margin-bottom: 1.5rem; }
+    .cta-title {
+      font-family: var(--f-serif);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      color: white;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+    }
+    .cta-title em { font-style: italic; color: var(--c-sage); }
+    .cta-sub { font-size: 0.9rem; color: rgba(255,255,255,0.5); margin-bottom: 2.5rem; font-weight: 300; line-height: 1.8; }
+    .btn-gold {
+      background: var(--c-gold);
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: var(--r-pill);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.25s;
+    }
+    .btn-gold:hover { background: #b8894f; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(196,153,106,0.35); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--c-ink); color: rgba(255,255,255,0.45); padding: 5rem 2.5rem 2.5rem; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2.5fr 1fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .f-logo { font-family: var(--f-serif); font-size: 1.6rem; font-weight: 400; color: white; margin-bottom: 1rem; letter-spacing: 0.01em; }
+    .f-logo em { font-style: italic; color: var(--c-sage); }
+    .f-tagline { font-size: 0.84rem; line-height: 1.8; margin-bottom: 1.75rem; font-weight: 300; }
+    .f-socials { display: flex; gap: 0.5rem; }
+    .f-soc {
+      width: 2rem;
+      height: 2rem;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .f-soc svg { width: 14px; height: 14px; color: rgba(255,255,255,0.5); }
+    .f-soc:hover { background: var(--c-sage-deep); }
+    .f-soc:hover svg { color: white; }
+    .f-col-title { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 1.25rem; }
+    .f-links { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .f-links a { font-size: 0.84rem; color: rgba(255,255,255,0.4); transition: color 0.2s; font-weight: 300; }
+    .f-links a:hover { color: rgba(255,255,255,0.85); }
+    .footer-bottom {
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+    }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--c-ink);
+      color: white;
+      padding: 0.875rem 1.5rem;
+      border-radius: var(--r-md);
+      font-size: 0.84rem;
+      font-weight: 500;
+      z-index: 999;
+      transform: translateY(120%);
+      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      max-width: 300px;
+      border-left: 3px solid var(--c-sage-deep);
+    }
+    .toast.show { transform: translateY(0); }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 4rem 2.5rem; order: 2; }
+      .hero-right { height: 60vw; min-height: 320px; order: 1; }
+      .hero-stats { grid-template-columns: repeat(3, 1fr); }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .howto-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .bundle-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .social-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .products-grid { grid-template-columns: 1fr 1fr; gap: 0.875rem; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .social-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .trust-inner { gap: 0; }
+      .trust-item { padding: 0.3rem 0.875rem; font-size: 0.62rem; }
+      .sec { padding: 4rem 1.25rem; }
+      .reviews-score-wrap { flex-direction: column; gap: 0.75rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Announcement -->
+<div class="announcement">
+  Free UK shipping on all orders &nbsp;·&nbsp; Use LUBAN10 for 10% off your first order
+</div>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-wrap">
+    <a href="#" class="nav-logo">Luban <em>Wellness</em></a>
+    <ul class="nav-links">
+      <li><a href="#products">Shop</a></li>
+      <li><a href="#benefits">Benefits</a></li>
+      <li><a href="#howto">The Ritual</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#bundle">Bundles</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-bag" onclick="openCart()">
+        Bag <span class="bag-count" id="bagCount">0</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="label">Omani Frankincense</span>
+    <h1>The Sacred<br>Scent of <em>Oman</em><br>In Your Home</h1>
+    <p class="hero-body">Premium Hojari frankincense, hand-selected from the Boswellia Sacra trees of Dhofar. A five-thousand year tradition, brought to your space.</p>
+    <div class="hero-ctas">
+      <a href="#products" class="btn-fill">
+        Shop the Collection
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#howto" class="btn-ghost">Discover the Ritual</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-n">5.0★</div>
+        <div class="stat-l">Etsy Rating</div>
+      </div>
+      <div>
+        <div class="stat-n">100%</div>
+        <div class="stat-l">Hojari Grade</div>
+      </div>
+      <div>
+        <div class="stat-n">Omani</div>
+        <div class="stat-l">Sourced Resin</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img
+      src="https://i.etsystatic.com/63240436/r/il/b6febc/7704197892/il_800x800.7704197892_7nup.jpg"
+      alt="Frankincense Starter Pack by Luban Wellness"
+    >
+    <div class="hero-right-overlay"></div>
+    <div class="hero-pill">
+      <div class="hero-pill-label">5,000 years of tradition</div>
+      <div class="hero-pill-text">The Omani Ritual.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Strip -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      100% Hojari Grade
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      Fast UK Dispatch
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+      Sustainably Harvested
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>
+      Omani Sourced
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/></svg>
+      Gift-Ready Packaging
+    </div>
+  </div>
+</div>
+
+<!-- Products -->
+<section class="sec products-sec" id="products">
+  <div class="sec-inner">
+    <div class="sec-header">
+      <span class="sec-label">The Collection</span>
+      <h2 class="sec-title">Omani Frankincense,<br>Delivered to Your Door</h2>
+      <p class="sec-sub">Every product is hand-selected, sustainably sourced, and shipped with care from the Dhofar region of Oman.</p>
+    </div>
+    <div class="products-grid">
+
+      <!-- 1. Frankincense Starter Pack -->
+      <div class="p-card reveal">
+        <div class="p-img">
+          <img src="https://i.etsystatic.com/63240436/r/il/b6febc/7704197892/il_800x800.7704197892_7nup.jpg" alt="Frankincense Starter Pack">
+          <span class="p-badge badge-ink">Best Seller</span>
+        </div>
+        <div class="p-body">
+          <div class="p-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span>5.0 (6)</span>
+          </div>
+          <div class="p-name">Frankincense Starter Pack</div>
+          <div class="p-desc">Hojari resin, charcoal, tongs and a step-by-step guide. Everything to begin the ritual.</div>
+          <div class="p-foot">
+            <div>
+              <span class="p-price">£10.49</span>
+              <span style="font-size:0.75rem;color:var(--c-stone);text-decoration:line-through;font-family:var(--f-sans);margin-left:0.4rem;">£12.49</span>
+            </div>
+            <button class="p-add" onclick="addToCart('Frankincense Starter Pack')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Hojari Jar 100g -->
+      <div class="p-card reveal">
+        <div class="p-img">
+          <img src="https://i.etsystatic.com/63240436/r/il/2efa4e/7752128771/il_800x800.7752128771_i77o.jpg" alt="Hojari Jar 100g">
+          <span class="p-badge badge-sage">Best Value</span>
+        </div>
+        <div class="p-body">
+          <div class="p-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span>5.0 (2)</span>
+          </div>
+          <div class="p-name">Hojari Jar 100g</div>
+          <div class="p-desc">Our signature branded jar, filled with premium Omani Hojari resin. Hand-selected from the Dhofar region.</div>
+          <div class="p-foot">
+            <div>
+              <span class="p-price">£16.09</span>
+              <span style="font-size:0.75rem;color:var(--c-stone);text-decoration:line-through;font-family:var(--f-sans);margin-left:0.4rem;">£19.49</span>
+            </div>
+            <button class="p-add" onclick="addToCart('Hojari Jar 100g')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Frankincense Essential Oil -->
+      <div class="p-card reveal">
+        <div class="p-img">
+          <img src="https://i.etsystatic.com/63240436/r/il/40af85/7777047063/il_800x800.7777047063_f6lu.jpg" alt="Frankincense Essential Oil 10ml">
+          <span class="p-badge badge-gold">Premium</span>
+        </div>
+        <div class="p-body">
+          <div class="p-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span>5.0 (1)</span>
+          </div>
+          <div class="p-name">Frankincense Essential Oil 10ml</div>
+          <div class="p-desc">Pure Omani frankincense oil, steam-distilled from Boswellia Sacra resin. For diffusing or topical use.</div>
+          <div class="p-foot">
+            <div>
+              <span class="p-price">£28.89</span>
+              <span style="font-size:0.75rem;color:var(--c-stone);text-decoration:line-through;font-family:var(--f-sans);margin-left:0.4rem;">£35.49</span>
+            </div>
+            <button class="p-add" onclick="addToCart('Frankincense Essential Oil')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Hojari Pouch Refill -->
+      <div class="p-card reveal">
+        <div class="p-img">
+          <img src="https://i.etsystatic.com/63240436/r/il/ce06ad/7704182438/il_800x800.7704182438_nusa.jpg" alt="Hojari Pouch Refill 25g">
+          <span class="p-badge badge-ink">On Sale</span>
+        </div>
+        <div class="p-body">
+          <div class="p-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span>5.0 (2)</span>
+          </div>
+          <div class="p-name">Hojari Pouch Refill 25g</div>
+          <div class="p-desc">Premium Orange Hojari resin in a resealable pouch. Warm, grounded aroma. Perfect for daily burning.</div>
+          <div class="p-foot">
+            <div>
+              <span class="p-price">£6.49</span>
+              <span style="font-size:0.75rem;color:var(--c-stone);text-decoration:line-through;font-family:var(--f-sans);margin-left:0.4rem;">£7.49</span>
+            </div>
+            <button class="p-add" onclick="addToCart('Hojari Pouch Refill 25g')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Incense Burner -->
+      <div class="p-card reveal">
+        <div class="p-img">
+          <img src="https://i.etsystatic.com/63240436/r/il/b23ee2/7752145319/il_800x800.7752145319_nk11.jpg" alt="Incense Burner">
+          <span class="p-badge badge-sage">On Sale</span>
+        </div>
+        <div class="p-body">
+          <div class="p-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span>5.0 (3)</span>
+          </div>
+          <div class="p-name">Incense Burner</div>
+          <div class="p-desc">A hand-crafted brass mabkhara, designed for traditional frankincense burning. The perfect size for home use.</div>
+          <div class="p-foot">
+            <div>
+              <span class="p-price">£6.49</span>
+              <span style="font-size:0.75rem;color:var(--c-stone);text-decoration:line-through;font-family:var(--f-sans);margin-left:0.4rem;">£7.49</span>
+            </div>
+            <button class="p-add" onclick="addToCart('Incense Burner')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Charcoal and Tongs -->
+      <div class="p-card reveal">
+        <div class="p-img">
+          <img src="https://i.etsystatic.com/63240436/r/il/3ff0ad/7704191046/il_800x800.7704191046_jpl0.jpg" alt="Charcoal and Tongs">
+          <span class="p-badge badge-gold">On Sale</span>
+        </div>
+        <div class="p-body">
+          <div class="p-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span>5.0 (1)</span>
+          </div>
+          <div class="p-name">Charcoal and Tongs</div>
+          <div class="p-desc">Swift-lighting charcoal discs and precision tongs for the perfect burn. Essential ritual accessories.</div>
+          <div class="p-foot">
+            <div>
+              <span class="p-price">£5.29</span>
+              <span style="font-size:0.75rem;color:var(--c-stone);text-decoration:line-through;font-family:var(--f-sans);margin-left:0.4rem;">£5.99</span>
+            </div>
+            <button class="p-add" onclick="addToCart('Charcoal and Tongs')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Benefits -->
+<section class="sec benefits-sec" id="benefits">
+  <div class="sec-inner">
+    <div class="sec-header">
+      <span class="sec-label">Why Frankincense</span>
+      <h2 class="sec-title">Calm, Clarity, and<br>Ancient Healing</h2>
+      <p class="sec-sub">Omani frankincense has been used for thousands of years to cleanse spaces, steady the mind, and restore stillness.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="b-card reveal">
+        <div class="b-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22c0 0-8-5-8-11a8 8 0 0 1 16 0c0 6-8 11-8 11z"/><path d="M12 8v4"/><path d="M12 14v.01"/></svg>
+        </div>
+        <div class="b-title">Calms the Mind</div>
+        <p class="b-text">Boswellic compounds in frankincense smoke support slower breathing, ease mental tension, and settle the nervous system.</p>
+      </div>
+      <div class="b-card reveal">
+        <div class="b-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0"/><path d="M12 8c-2.5 0-4 2-4 4s1.5 4 4 4 4-2 4-4-1.5-4-4-4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg>
+        </div>
+        <div class="b-title">Cleanses the Space</div>
+        <p class="b-text">Five millennia of tradition as a natural space purifier. Burning Hojari resin resets the atmosphere and refreshes the air.</p>
+      </div>
+      <div class="b-card reveal">
+        <div class="b-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </div>
+        <div class="b-title">Deepens Rest</div>
+        <p class="b-text">The grounding aroma of Hojari resin eases the body into stillness. An ideal evening ritual for winding down and sleeping well.</p>
+      </div>
+      <div class="b-card reveal">
+        <div class="b-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="b-title">Sacred Heritage</div>
+        <p class="b-text">Burning frankincense connects you to a 5,000 year Omani tradition, rooted in care, ceremony, and a deep relationship with the land.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How To Use -->
+<section class="sec howto-sec" id="howto">
+  <div class="sec-inner">
+    <div class="howto-grid">
+      <div class="howto-img-wrap">
+        <img src="https://i.etsystatic.com/63240436/r/il/b23ee2/7752145319/il_800x800.7752145319_nk11.jpg" alt="Luban Wellness Incense Burner">
+        <div class="howto-float">
+          <div class="howto-float-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div>
+            <div class="howto-float-label">The ritual</div>
+            <div class="howto-float-text">Simple. Slow. Sacred.</div>
+          </div>
+        </div>
+      </div>
+      <div class="howto-content">
+        <span class="sec-label">The Burning Ritual</span>
+        <h2 class="sec-title" style="text-align:left;margin-bottom:1rem;">How to Burn<br><em style="font-style:italic;color:var(--c-sage-deep);">Your Frankincense</em></h2>
+        <p class="howto-lead">The Omani ritual of burning frankincense is slow and intentional. Four simple steps are all you need to bring the scent of Dhofar into your home.</p>
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step-n">1</div>
+            <div>
+              <div class="step-title">Light the Charcoal</div>
+              <p class="step-text">Place a charcoal disc in your burner and hold a flame to the edge. Wait until it glows orange across the full surface — roughly 60 seconds.</p>
+            </div>
+          </div>
+          <div class="step reveal">
+            <div class="step-n">2</div>
+            <div>
+              <div class="step-title">Add the Resin</div>
+              <p class="step-text">Using tongs, place one or two small pieces of Hojari resin onto the lit charcoal. Smoke will rise gently and the aroma will fill the room.</p>
+            </div>
+          </div>
+          <div class="step reveal">
+            <div class="step-n">3</div>
+            <div>
+              <div class="step-title">Find Your Measure</div>
+              <p class="step-text">A small piece of resin is enough. Add more to intensify the scent. Less is always more — let the ritual breathe.</p>
+            </div>
+          </div>
+          <div class="step reveal">
+            <div class="step-n">4</div>
+            <div>
+              <div class="step-title">Sit with the Stillness</div>
+              <p class="step-text">Breathe slowly and let the scent settle into the room. Allow the calm to find you. This is the tradition of Oman, in your own space.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section class="sec reviews-sec" id="reviews">
+  <div class="sec-inner">
+    <div class="sec-header">
+      <span class="sec-label">Verified Etsy Reviews</span>
+      <h2 class="sec-title">What Our Customers Say</h2>
+    </div>
+    <div class="reviews-score-wrap">
+      <div class="r-big-score">5.0</div>
+      <div class="r-score-detail">
+        <div class="r-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="r-count">6 verified Etsy reviews — all 5 stars</div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="r-card reveal">
+        <div class="r-card-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="r-text">"I purchased the white frankincense starter pack and the burner — everything arrived perfectly packaged and very quickly. The frankincense is high quality and made my house smell wonderful. Easy to use and lovely smell especially during Ramadan."</p>
+        <div class="r-author">
+          <div class="r-avatar">J</div>
+          <div>
+            <div class="r-name">juneynakabir</div>
+            <div class="r-verified">Verified Etsy Purchase · Feb 2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="r-card reveal">
+        <div class="r-card-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="r-text">"Arrived promptly, beautifully wrapped, and the incense itself smells absolutely gorgeous. Definitely a better quality than some other frankincense I've had over the years."</p>
+        <div class="r-author">
+          <div class="r-avatar">L</div>
+          <div>
+            <div class="r-name">Lynda</div>
+            <div class="r-verified">Verified Etsy Purchase · Mar 2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="r-card reveal">
+        <div class="r-card-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="r-text">"I was on the hunt for some good quality frankincense after learning about the benefits over traditional candles. The frankincense from this seller was perfect. Smelt beautiful and came well packaged."</p>
+        <div class="r-author">
+          <div class="r-avatar">R</div>
+          <div>
+            <div class="r-name">Rommana</div>
+            <div class="r-verified">Verified Etsy Purchase · Feb 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bundle -->
+<section class="sec bundle-sec" id="bundle">
+  <div class="sec-inner">
+    <div class="bundle-grid">
+      <div class="bundle-imgs">
+        <div class="b-img main">
+          <img src="https://i.etsystatic.com/63240436/r/il/2efa4e/7752128771/il_800x800.7752128771_i77o.jpg" alt="Hojari Jar 100g">
+        </div>
+        <div class="b-img half">
+          <img src="https://i.etsystatic.com/63240436/r/il/b23ee2/7752145319/il_800x800.7752145319_nk11.jpg" alt="Incense Burner">
+        </div>
+        <div class="b-img half">
+          <img src="https://i.etsystatic.com/63240436/r/il/40af85/7777047063/il_800x800.7777047063_f6lu.jpg" alt="Frankincense Essential Oil">
+        </div>
+      </div>
+      <div>
+        <span class="bundle-tag">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Curated Bundle
+        </span>
+        <h2 class="bundle-title">The Complete<br><em style="font-style:italic;color:var(--c-sage-deep);">Ritual</em> Collection</h2>
+        <p class="bundle-desc">Everything you need for the full Omani frankincense experience. The resin, the oil, the burner — curated and ready to give or keep.</p>
+        <ul class="bundle-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Hojari Jar 100g — premium Omani resin
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Frankincense Essential Oil 10ml
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Brass Incense Burner (Mabkhara)
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Gift-Ready Packaging
+          </li>
+        </ul>
+        <div class="bundle-price-row">
+          <span class="bundle-now">£44.99</span>
+          <span class="bundle-was">£51.47</span>
+          <span class="bundle-save">Save £6.48</span>
+        </div>
+        <button class="btn-fill" onclick="addToCart('The Ritual Collection Bundle')">
+          Add Collection to Bag
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Social -->
+<section class="social-sec">
+  <div class="sec-inner">
+    <div class="sec-header">
+      <span class="sec-label">@LubanWellness</span>
+      <h2 class="sec-title">The Community</h2>
+      <p class="sec-sub">Real rituals, real homes. Tag us on Instagram to be featured.</p>
+    </div>
+    <div class="social-grid">
+      <div class="s-item">
+        <img src="https://i.etsystatic.com/63240436/r/il/40af85/7777047063/il_800x800.7777047063_f6lu.jpg" alt="Frankincense Essential Oil">
+        <div class="s-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+      </div>
+      <div class="s-item">
+        <img src="https://i.etsystatic.com/63240436/r/il/b6febc/7704197892/il_800x800.7704197892_7nup.jpg" alt="Frankincense Starter Pack">
+        <div class="s-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+      </div>
+      <div class="s-item">
+        <img src="https://i.etsystatic.com/63240436/r/il/ce06ad/7704182438/il_800x800.7704182438_nusa.jpg" alt="Hojari Pouch">
+        <div class="s-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+      </div>
+      <div class="s-item">
+        <img src="https://i.etsystatic.com/63240436/r/il/2efa4e/7752128771/il_800x800.7752128771_i77o.jpg" alt="Hojari Jar">
+        <div class="s-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+      </div>
+      <div class="s-item">
+        <img src="https://i.etsystatic.com/63240436/r/il/b23ee2/7752145319/il_800x800.7752145319_nk11.jpg" alt="Incense Burner">
+        <div class="s-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <div class="cta-inner">
+    <span class="cta-label">Begin Your Ritual</span>
+    <h2 class="cta-title">Let the Ancient<br><em>Calm of Oman</em><br>Fill Your Space</h2>
+    <p class="cta-sub">Luban Wellness brings the sacred Omani tradition of frankincense directly to your home. Ethically harvested, beautifully packaged, and shipped from the UK.</p>
+    <a href="#products" class="btn-gold">
+      Shop Luban Wellness
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="f-logo">Luban <em>Wellness</em></div>
+        <p class="f-tagline">Bringing the sacred scent of Oman to modern homes.<br>Rooted in tradition. Delivered with care.</p>
+        <div class="f-socials">
+          <a href="#" class="f-soc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" class="f-soc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+          <a href="#" class="f-soc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.95C18.88 4 12 4 12 4s-6.88 0-8.59.47A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          <a href="#" class="f-soc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="f-col-title">Shop</div>
+        <ul class="f-links">
+          <li><a href="#">Frankincense Resin</a></li>
+          <li><a href="#">Essential Oil</a></li>
+          <li><a href="#">Incense Burner</a></li>
+          <li><a href="#">Starter Pack</a></li>
+          <li><a href="#">Bundles</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-col-title">Learn</div>
+        <ul class="f-links">
+          <li><a href="#">The Ritual</a></li>
+          <li><a href="#">About Frankincense</a></li>
+          <li><a href="#">The Hojari Grades</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Journal</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-col-title">Support</div>
+        <ul class="f-links">
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Luban Wellness. All rights reserved.</span>
+      <span>Omani frankincense, shipped from the United Kingdom</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+  // Cart
+  let count = 0;
+  function addToCart(name) {
+    count++;
+    document.getElementById('bagCount').textContent = count;
+    showToast('Added to bag — ' + name);
+  }
+  function openCart() {
+    showToast(count === 0 ? 'Your bag is empty' : count + ' item' + (count > 1 ? 's' : '') + ' in your bag');
+  }
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(t._t);
+    t._t = setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Nav shadow
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.boxShadow =
+      window.scrollY > 30 ? '0 4px 24px rgba(30,28,25,0.07)' : 'none';
+  }, { passive: true });
+</script>
+</body>
+</html>
